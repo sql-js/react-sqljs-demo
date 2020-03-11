@@ -7,6 +7,7 @@
     "starter"
   ],
   "main": "src/index.js",
+  "license": "MIT",
   "dependencies": {
     "react": "16.12.0",
     "react-dom": "16.12.0",
