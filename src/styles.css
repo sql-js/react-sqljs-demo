@@ -1,0 +1,35 @@
+.App {
+  font-family: sans-serif;
+  font-size: 1.5em;
+}
+
+textarea{
+  font-size: 1.1em;
+  width: 70%;
+  display: block;
+  margin:auto;
+}
+
+table{
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 40%;
+  margin: 1.5em auto;
+  text-align: left;
+  border-collapse: collapse;
+  text-align: right;
+}
+
+thead{
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid #999;
+}
+
+th, td{
+  border: 1px solid #aaa;
+}
+
+.error{
+  color:#922;
+}
