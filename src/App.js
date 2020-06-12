@@ -1,7 +1,7 @@
 import React from "react";
+import axios from "axios";
 import "./styles.css";
 import initSqlJs from "sql.js";
-
 
 export default class App extends React.Component {
 
@@ -14,9 +14,20 @@ export default class App extends React.Component {
     // sql.js needs to fetch its wasm file, so we cannot immediately instantiate the database
     // without any configuration, initSqlJs will fetch the wasm files directly from the same path as the js
     // see ../config-overrides.js
-    initSqlJs()
-      .then(SQL => this.setState({ db: new SQL.Database() }))
-      .catch(err => this.setState({ err }));
+
+    const me = this;
+    Promise.all([initSqlJs(), axios.get('./test.db', {responseType: 'arraybuffer'})]).then(res => {
+      const SQLite = res[0], dbStorage = res[1];
+      const db = new SQLite.Database(new Uint8Array(dbStorage.data));
+      // language=SQLite
+      // const rows = db.exec("SELECT count(*) FROM db_articles");
+      // console.log(rows);
+      me.setState({db: db});
+
+    }).catch(err => {
+      me.setState({err});
+    });
+
   }
 
   exec(sql) {
@@ -70,7 +81,7 @@ export default class App extends React.Component {
         <textarea
           onChange={e => this.exec(e.target.value)}
           placeholder="Enter some SQL. No inpiration ? Try “select sqlite_version()”"
-        ></textarea>
+        >SELECT count(*) FROM db_articles</textarea>
 
         <pre className="error">{(err || "").toString()}</pre>
 
