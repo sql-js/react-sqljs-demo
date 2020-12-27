@@ -69,7 +69,7 @@ export default class App extends React.Component {
 
         <textarea
           onChange={e => this.exec(e.target.value)}
-          placeholder="Enter some SQL. No inpiration ? Try “select sqlite_version()”"
+          placeholder="Enter some SQL. No inspiration ? Try “select sqlite_version()”"
         ></textarea>
 
         <pre className="error">{(err || "").toString()}</pre>
