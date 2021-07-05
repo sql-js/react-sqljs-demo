@@ -28,7 +28,7 @@ export default function App() {
 
 /**
  * A simple SQL read-eval-print-loop
- * @param {import("sql.js").Database} db
+ * @param {{db: import("sql.js").Database}} props
  */
 function SQLRepl({ db }) {
   const [error, setError] = useState(null);
@@ -72,6 +72,7 @@ function SQLRepl({ db }) {
 
 /**
  * Renders a single value of the array returned by db.exec(...) as a table
+ * @param {import("sql.js").QueryExecResult} props
  */
 function ResultsTable({ columns, values }) {
   return (
