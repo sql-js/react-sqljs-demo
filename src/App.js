@@ -78,8 +78,8 @@ function ResultsTable({ columns, values }) {
     <table>
       <thead>
         <tr>
-          {columns.map((columnName) => (
-            <td>{columnName}</td>
+          {columns.map((columnName, i) => (
+            <td key={i}>{columnName}</td>
           ))}
         </tr>
       </thead>
@@ -87,10 +87,10 @@ function ResultsTable({ columns, values }) {
       <tbody>
         {
           // values is an array of arrays representing the results of the query
-          values.map((row) => (
-            <tr>
-              {row.map((value) => (
-                <td>{value}</td>
+          values.map((row, i) => (
+            <tr key={i}>
+              {row.map((value, i) => (
+                <td key={i}>{value}</td>
               ))}
             </tr>
           ))
