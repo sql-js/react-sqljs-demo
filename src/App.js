@@ -2,6 +2,8 @@ import React from "react";
 import "./styles.css";
 import initSqlJs from "sql.js";
 
+// Required to let webpack know it needs to copy the wasm file to our assets
+import sqlWasm from "!!file-loader?name=sql-wasm-[contenthash].wasm!sql.js/dist/sql-wasm.wasm"
 
 export default class App extends React.Component {
 
@@ -13,8 +15,10 @@ export default class App extends React.Component {
   componentDidMount() {
     // sql.js needs to fetch its wasm file, so we cannot immediately instantiate the database
     // without any configuration, initSqlJs will fetch the wasm files directly from the same path as the js
-    // see ../config-overrides.js
-    initSqlJs()
+    // see ../craco.config.js
+    initSqlJs({
+      locateFile: () => sqlWasm // Important
+    })
       .then(SQL => this.setState({ db: new SQL.Database() }))
       .catch(err => this.setState({ err }));
   }

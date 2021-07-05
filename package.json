@@ -9,21 +9,19 @@
   "main": "src/index.js",
   "license": "MIT",
   "dependencies": {
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
-    "react-scripts": "^3.4.0",
-    "sql.js": "^1.2.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sql.js": "^1.5.0"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^5.1.1",
-    "react-app-rewired": "^2.1.5",
-    "typescript": "3.3.3"
+    "typescript": "^4.2.5",
+    "@craco/craco": "^6.2.0"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test --env=jsdom",
+    "eject": "craco eject"
   },
   "browserslist": [
     ">0.2%",
