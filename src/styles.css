@@ -3,16 +3,16 @@
   font-size: 1.5em;
 }
 
-textarea{
+textarea {
   font-size: 1.1em;
   width: 70%;
   display: block;
-  margin:auto;
+  margin: auto;
 }
 
-table{
-  border: 1px solid #1C6EA4;
-  background-color: #EEEEEE;
+table {
+  border: 1px solid #1c6ea4;
+  background-color: #eeeeee;
   width: 40%;
   margin: 1.5em auto;
   text-align: left;
@@ -20,16 +20,17 @@ table{
   text-align: right;
 }
 
-thead{
+thead {
   font-weight: bold;
   text-align: center;
   border: 2px solid #999;
 }
 
-th, td{
+th,
+td {
   border: 1px solid #aaa;
 }
 
-.error{
-  color:#922;
+.error {
+  color: #922;
 }
