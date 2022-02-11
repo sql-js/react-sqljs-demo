@@ -10,4 +10,4 @@ The only differences with a traditional create-react-app application are :
  
  See [`src/App.js`](./src/App.js) for the code.
  
- ### [view the live demo](https://sqljs-react-demo.netlify.app/)
+ ### [view the live demo](https://react-sqljs-demo.ophir.dev/)
