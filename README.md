@@ -11,3 +11,39 @@ The only differences with a traditional create-react-app application are :
  See [`src/App.js`](./src/App.js) for the code.
  
  ### [view the live demo](https://react-sqljs-demo.ophir.dev/)
+
+## Using with Webpack 5
+Webpack 5 do not include nodejs polyfills by default, and you'll have to explicitely specify the file-loader for `wasm` file. So you'll need to update `craco.config.js` as below
+```js
+module.exports = {
+    webpack: {
+        configure: {
+            module: {
+                rules: [
+                    {
+                        test: /\.wasm$/,
+                        type: 'javascript/auto',
+                        use: [
+                            { loader: 'file-loader' }
+                        ]
+                    },
+            },
+            resolve: {
+                fallback: {
+                    'path': require.resolve('path-browserify'),
+                    'crypto': require.resolve('crypto-browserify'),
+                    'stream': require.resolve('stream-browserify')
+                }
+            },
+        },
+    },
+};
+```
+And add the required module to your project
+```
+npm install -D path-browserify crypto-browserify stream-browserify
+```
+or
+```
+yarn add -D path-browserify crypto-browserify stream-browserify
+```
