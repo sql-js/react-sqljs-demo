@@ -1,13 +1,20 @@
 module.exports = {
     webpack: {
-        configure:{
-            // See https://github.com/webpack/webpack/issues/6725
-            module:{
+        configure: {
+            module: {
                 rules: [{
                     test: /\.wasm$/,
                     type: 'javascript/auto',
-                }]
-            }
-        }
-    }
+                    use: [{ loader: 'file-loader' }]
+                }],
+            },
+            resolve: {
+                fallback: {
+                    'path': require.resolve('path-browserify'),
+                    'crypto': require.resolve('crypto-browserify'),
+                    'stream': require.resolve('stream-browserify')
+                }
+            },
+        },
+    },
 };

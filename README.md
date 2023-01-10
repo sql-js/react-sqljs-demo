@@ -8,38 +8,7 @@ The only differences with a traditional create-react-app application are :
 
  Note that you should make sure your server serves `.wasm` files with the right mimetype, that is: `application/wasm`. Otherwise, you'll see the following error: `TypeError: Response has unsupported MIME type`
  
- See [`src/App.js`](./src/App.js) for the code.
- 
- ### [view the live demo](https://react-sqljs-demo.ophir.dev/)
-
-## Using with Webpack 5
-Webpack 5 do not include nodejs polyfills by default, and you'll have to explicitely specify the file-loader for `wasm` file. So you'll need to update `craco.config.js` as below
-```js
-module.exports = {
-    webpack: {
-        configure: {
-            module: {
-                rules: [
-                    {
-                        test: /\.wasm$/,
-                        type: 'javascript/auto',
-                        use: [
-                            { loader: 'file-loader' }
-                        ]
-                    },
-            },
-            resolve: {
-                fallback: {
-                    'path': require.resolve('path-browserify'),
-                    'crypto': require.resolve('crypto-browserify'),
-                    'stream': require.resolve('stream-browserify')
-                }
-            },
-        },
-    },
-};
-```
-And add the required module to your project
+Webpack 5 do not include nodejs polyfills by default, so you'll need to include them by adding them as dev dependency
 ```
 npm install -D path-browserify crypto-browserify stream-browserify
 ```
@@ -47,3 +16,7 @@ or
 ```
 yarn add -D path-browserify crypto-browserify stream-browserify
 ```
+
+See [`src/App.js`](./src/App.js) for the code.
+ 
+### [view the live demo](https://react-sqljs-demo.ophir.dev/)
