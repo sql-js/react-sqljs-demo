@@ -20,3 +20,6 @@ yarn add -D path-browserify crypto-browserify stream-browserify
 See [`src/App.js`](./src/App.js) for the code.
  
 ### [view the live demo](https://react-sqljs-demo.ophir.dev/)
+
+### Using Webpack 4
+See [here](https://github.com/sql-js/react-sqljs-demo/tree/v1) for craco configuration using Webpack 4
